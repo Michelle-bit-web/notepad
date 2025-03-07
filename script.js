@@ -1,6 +1,9 @@
-let notes = ['banana', 'grün'];
+let notesTitles = ['Aufgabe', 'Aufgabe', 'Aufgabe'];
+
+let notes = ['banana', 'grün', 'Putzen'];
 
 let trashNotes = [];
+let trashNotesTitles = [];
 //Fürs eigene Projekt: Dialog, der sich öffnen lässt (dort gelöschte Notes)
 // Design vllt wie ein typisches Notizheft. leicht gelb, graue Lines, header als Ringblock, curly Schrift
 
@@ -14,7 +17,7 @@ function renderNotes(){
 }
 
 function getNoteTemplate(indexNote){
-    return ` <p>+ ${notes[indexNote]} <button onclick="deleteNotes(${indexNote})">X</button></p>`
+    return ` <p>+ ${notesTitles[indexNote]} - ${[(indexNote+1)]} ${notes[indexNote]} <button onclick="deleteNotes(${indexNote})">X</button></p>`
 }
 
 function addNote(){
@@ -31,6 +34,8 @@ function addNote(){
 function deleteNotes(indexNote){
    let trashNote = notes.splice(indexNote, 1);
    trashNotes.push(trashNote);
+   let trashNotesTitle = notesTitles.splice(indexNote, 1);
+   trashNotesTitles.push(trashNotesTitle);
     renderNotes();
     renderTrashNotes();
 }
@@ -46,16 +51,20 @@ function renderTrashNotes(){
 }
 
 function getTrashNoteTemplate(indexTrashNote){
-    return ` <p>+ ${trashNotes[indexTrashNote]} <button onclick="addTrashNotesAgain(${indexTrashNote})">+</button><button onclick="deleteTrashNotes(${indexTrashNote})">X</button></p>`
+    return ` <p>+ ${trashNotesTitles[indexTrashNote]} - ${trashNotes[indexTrashNote]} <button onclick="addTrashNotesAgain(${indexTrashNote})">+</button><button onclick="deleteTrashNotes(${indexTrashNote})">X</button></p>`
 }
 
 function deleteTrashNotes(indexTrashNote){
    trashNotes.splice(indexTrashNote, 1);
+   notesTitles.splice(indexTrashNote, 1);
      renderTrashNotes();
  }
 
  function addTrashNotesAgain(indexTrashNote){
     notes.push(trashNotes[indexTrashNote]);
+    notesTitles.push(trashNotesTitles[indexTrashNote]);
+    
+    deleteTrashNotes(indexTrashNote)
 
     renderNotes();
     renderTrashNotes();
