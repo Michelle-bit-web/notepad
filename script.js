@@ -1,7 +1,5 @@
 let notesTitles = ['Aufgabe', 'Aufgabe', 'Aufgabe'];
-
 let notes = ['banana', 'grün', 'Putzen'];
-
 let trashNotes = [];
 let trashNotesTitles = [];
 //Fürs eigene Projekt: Dialog, der sich öffnen lässt (dort gelöschte Notes)
@@ -15,18 +13,15 @@ function init(){
 
 function saveData(){
     let noteInputRef = document.getElementById('note_input')
-
     if(noteInputRef.value != ""){
         notesTitles.push(noteInputRef.value);
         notes.push(notes.value);
     }
 
     saveToLocalStorage();
-
     renderNotes();
     noteInputRef.value = "";
 }
-
 
 function saveToLocalStorage(){
     localStorage.setItem("notesTitles", JSON.stringify(notesTitles));
@@ -42,39 +37,29 @@ function getFromLocalStorage() {
    let myTrashNotes = JSON.parse(localStorage.getItem("trashNotes"));
    let myTrashNotesTitles = JSON.parse(localStorage.getItem("trashNotesTitles"));
 
-   if(myNotes == null) {renderNotes()}
-   else {notes = myNotes};
-
+    if(myNotes == null) {renderNotes()}
+    else {notes = myNotes};
     if(myTitles == null) {renderNotes()}
     else {notesTitles = myTitles};
-
     if(myTrashNotes == null) {renderTrashNotes()}
     else {trashNotes = myTrashNotes};
-
     if(myTrashNotesTitles == null) {renderTrashNotes()}
     else { trashNotesTitles = myTrashNotesTitles};
 }
 
 function renderNotes(){
-    let contentRef = document.getElementById('content')
-    contentRef.innerHTML = ""
-
+    let contentRef = document.getElementById('content');
+    contentRef.innerHTML = "";
     for (let indexNote = 0; indexNote < notes.length; indexNote++) {
         contentRef.innerHTML += getNoteTemplate(indexNote);
     }
 }
 
-function getNoteTemplate(indexNote){
-    return ` <p>+ <b>${notesTitles[indexNote]}</b> -  ${notes[indexNote]} <button onclick="deleteNotes(${indexNote})">X</button></p>`
-}
-
 function addNote(){
     let noteInputRef = document.getElementById('note_input');
     let titleInputRef = document.getElementById('note_title');
-
     let noteInput = noteInputRef.value;
     let titleInput = titleInputRef.value;
-
     if(noteInputRef.value != "" && titleInputRef.value !=""){
         notes.push(noteInput);
         notesTitles.push(titleInput);
@@ -95,18 +80,12 @@ function deleteNotes(indexNote){
     renderTrashNotes();
 }
 
-//notizen archivieren
 function renderTrashNotes(){
-    let trashContentRef = document.getElementById('trash_content')
-    trashContentRef.innerHTML = ""
-
+    let trashContentRef = document.getElementById('trash_content');
+    trashContentRef.innerHTML = "";
     for (let indexTrashNote = 0; indexTrashNote < trashNotes.length; indexTrashNote++) {
         trashContentRef.innerHTML += getTrashNoteTemplate(indexTrashNote);
     }
-}
-
-function getTrashNoteTemplate(indexTrashNote){
-    return ` <p>+ <b>${trashNotesTitles[indexTrashNote]}</b> - ${trashNotes[indexTrashNote]} <button onclick="addTrashNotesAgain(${indexTrashNote})">+</button><button onclick="deleteTrashNotes(${indexTrashNote})">X</button></p>`
 }
 
 function deleteTrashNotes(indexTrashNote){
@@ -118,9 +97,8 @@ function deleteTrashNotes(indexTrashNote){
 
  function addTrashNotesAgain(indexTrashNote){
     notes.push(trashNotes[indexTrashNote]);
-   notesTitles.push(trashNotesTitles[indexTrashNote]);
-    
-    deleteTrashNotes(indexTrashNote)
+    notesTitles.push(trashNotesTitles[indexTrashNote]);
+    deleteTrashNotes(indexTrashNote);
     saveToLocalStorage();
     renderNotes();
     renderTrashNotes();
