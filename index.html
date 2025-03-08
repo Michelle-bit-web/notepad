@@ -9,7 +9,8 @@
     <script src="./script.js"></script>
 
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="styles/standard.css">
+    <link rel="stylesheet" href="./styles/standard.css">
+    <link rel="stylesheet" href="./styles/assets.css">
 </head>
 <body onload="init()" onclick="closeDialog()">
     <header>
@@ -22,16 +23,23 @@
         <input id="note_input" type="text">
         <button onclick="addNote()">Save note</button>
     </div>
-    <div>
-        <h2>Your Notes</h2>
-        <div id="content"></div>
-        <button onclick="showDialog(event)">Go to trash</button>
+    <div class="saved_content">
+        <div class="div_notes">
+            <h2>Your Notes</h2>
+            <div id="content"></div>
+            <button onclick="showDialog(event)">Go to trash</button>
+        </div>
+        <dialog id="trash_dialog" class="overlay_dialog">
+            <div id="dialog_content" class="dialog_content">
+           
+                <h2>trash</h2>
+                <button onclick="closeDialog()">X</button>
+                <div id="trash_content">
+             </div>
+         </dialog>
+        
     </div>
-    <dialog id="trash_dialog">
-        <h2>trash</h2>
-        <button onclick="closeDialog()">X</button>
-        <div id="trash_content">
-    </dialog>
+    
     
 </body>
 </html>

@@ -107,9 +107,11 @@ function deleteTrashNotes(indexTrashNote){
  function showDialog(event){
     const dialog = document.getElementById('trash_dialog');
     dialog.show();
-    event.stopPropagation()
+    event.stopPropagation();
  }
- function closeDialog(event){
+ function closeDialog(){
     const dialog = document.getElementById('trash_dialog');
     dialog.close();
+   
  }
+

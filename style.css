@@ -3,3 +3,39 @@
     margin: 0;
     scroll-behavior: smooth;
 }
+header{
+    height: 5vh;
+    padding: 5%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.div_input{
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+    box-sizing: border-box;
+    background-color: grey;
+}
+
+.div_notes{
+    height: 65vh;
+    padding: 5%;
+}
+
+.saved_content{
+    display: flex;
+}
+.overlay_dialog{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.699);
+    height: 65vh;
+    width: 100%;
+}
+
+.dialog_content{
+    background-color: white;
+    height: 50vh
+}
