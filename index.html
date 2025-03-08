@@ -10,8 +10,11 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/standard.css">
 </head>
-<body onload="renderNotes()">
+<body onload="init()">
     <h1>Notepad</h1>
+    <label for="note_title">title</label>
+    <input id="note_title" type="text">
+    <label for="note_input">content</label>
     <input id="note_input" type="text">
     <button onclick="addNote()">Save note</button>
     <div id="content">
