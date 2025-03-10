@@ -1,9 +1,67 @@
+@font-face {
+    font-family: "Merienda-VariableFont_wght";
+    src: url("/assets/fonts/Merienda-VariableFont_wght.ttf") format("truetype");
+  }
+
 *{
     box-sizing: border-box;
     margin: 0;
     scroll-behavior: smooth;
+    color: white;
+    font-family: 'Merienda-VariableFont_wght';
 }
 
 a{
     text-decoration: none;
+}
+
+p{
+    padding: 5px 24px;
+    gap: 5%;
+    font-size: 32px;
+    font-weight: 80;
+}
+
+label{
+    margin: 16px 0;
+    font-size: 32px;
+}
+
+h1{
+    font-size: 56px;
+}
+
+h2{
+    font-size: 40px;
+}
+
+@media(max-width: 720px){
+    h1{
+        font-size: 40px;
+    }
+    h2{
+        font-size: 32px;
+    }
+    label{
+        font-size: 24px;
+    }
+    p{
+        font-size: 24px;
+    }
+}
+
+@media(max-width: 500px){
+    h1{
+        font-size: 36px;
+    }
+    h2{
+        font-size: 28px;
+    }
+    label{
+        font-size: 20px;
+    }
+    p{
+        font-size: 18px;
+        padding: 0;
+    }
 }

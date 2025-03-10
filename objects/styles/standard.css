@@ -1,0 +1,20 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+a{
+    text-decoration: none;
+}
+
+p{
+    border-bottom: 1px solid rgb(209, 207, 207);
+    margin: 5px;
+    padding: 5px 24px;
+}
+
+label{
+    margin: 16px 0;
+    font-size: 18px;
+}

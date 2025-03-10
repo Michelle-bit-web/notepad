@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notepad</title>
+
+    <script src="./scripts/templates.js"></script>
+    <script src="./script.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/standard.css">
+</head>
+<body onload="init()" onclick="closeDialog()">
+    <header>
+        <h1>Your Notepad</h1>
+    </header>
+    <div class="div_input">
+        <label for="note_title">title</label>
+        <input id="note_title" type="text">
+        <label for="note_input">content</label>
+        <input id="note_input" type="text">
+        <button onclick="addNote()">Save note</button>
+    </div>
+    <div>
+        <h2>Your Notes</h2>
+        <div id="content"></div>
+        <button onclick="showDialog(event)">Go to trash</button>
+    </div>
+    <dialog id="trash_dialog">
+        <h2>trash</h2>
+        <button onclick="closeDialog()">X</button>
+        <div id="trash_content">
+    </dialog>
+    
+</body>
+</html>

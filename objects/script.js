@@ -1,7 +1,18 @@
-let notesTitles = [];
-let notes = [];
+let notesTitles = ['Aufgabe', 'Aufgabe', 'Aufgabe'];
+let notes = ['banana', 'grün', 'Putzen'];
 let trashNotes = [];
 let trashNotesTitles = [];
+//Fürs eigene Projekt: Dialog, der sich öffnen lässt (dort gelöschte Notes)
+// Design vllt wie ein typisches Notizheft. leicht gelb, graue Lines, header als Ringblock, curly Schrift
+
+let allNotes = {
+    notesTitles : ['Aufgabe', 'Aufgabe', 'Aufgabe'],
+    notes : ['banana', 'grün', 'Putzen'],
+    trashNotes : [],
+    trashNotesTitles : [],
+}
+
+console.table(Object.entries(allNotes))
 
 function init(){
     getFromLocalStorage();
@@ -45,13 +56,22 @@ function getFromLocalStorage() {
     else { trashNotesTitles = myTrashNotesTitles};
 }
 
+// function renderNotes(){
+//     let contentRef = document.getElementById('content');
+//     contentRef.innerHTML = "";
+//     for (let indexNote = 0; indexNote < notes.length; indexNote++) {
+//         contentRef.innerHTML += getNoteTemplate(indexNote);
+//     }
+// }
+//Für Object statt Array
 function renderNotes(){
     let contentRef = document.getElementById('content');
     contentRef.innerHTML = "";
-    for (let indexNote = 0; indexNote < notes.length; indexNote++) {
+    for (let indexNote = 0; indexNote < allNotes.length; indexNote++) {
         contentRef.innerHTML += getNoteTemplate(indexNote);
     }
 }
+
 
 function addNote(){
     let noteInputRef = document.getElementById('note_input');
@@ -102,11 +122,14 @@ function deleteTrashNotes(indexTrashNote){
     renderTrashNotes();
  }
 
- function triggerDialog(a, event){
+ function showDialog(event){
     const dialog = document.getElementById('trash_dialog');
-    if(a > 0){dialog.classList.remove('d_none')
-    }
-    else if(a < 0){dialog.classList.add('d_none')
-    }
+    dialog.show();
     event.stopPropagation();
  }
+ function closeDialog(event){
+    const dialog = document.getElementById('trash_dialog');
+    dialog.close();
+    event.stopPropagation();
+ }
+

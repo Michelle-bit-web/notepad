@@ -3,55 +3,90 @@
     margin: 0;
     scroll-behavior: smooth;
 }
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(44, 44, 43);
+}
+
+.page_border{
+    border: 22px solid rgb(23, 23, 23);
+    border-radius: 10px;
+    height: 100vh;
+}
 header{
-    height: 5vh;
+    height: 10vh;
     padding: 5%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    border-bottom: 3px solid rgb(93, 92, 92);
-    background-color: rgb(254, 250, 219);
+    border-bottom: 8px solid rgb(255, 255, 255);
+}
+
+.div_header,
+.div_input,
+.div_notes,
+.content,
+.overlay_dialog,
+.page_border{
+    max-width: 1400px;
+    width: 100%;
 }
 
 .div_input{
-    height: 30vh;
+    height: 37vh;
     display: flex;
     flex-direction: column;
     padding: 0 5%;
     box-sizing: border-box;
-    background-color: rgb(254, 250, 219);
+    border-bottom: 2px solid rgb(255, 255, 255);
+}
+.div_p_notes{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    padding: 0 5%;
+    margin: 16px 0;
 }
 
-.div_notes{
+.div_notes_header{
     height: 10vh;
     padding: 0 5%;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid rgb(209, 207, 207);
 }
 
 .overlay_dialog{
     position: absolute;
+    top: 0%;
+    left:0%;
     display: flex;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.699);
-    height: 65vh;
+    background-color: rgba(255, 255, 255, 0.311);
+    height: 100vh;
     width: 100%;
 }
 
 .dialog_content{
-    background-color: rgba(255, 255, 255, 0.661);
-    height: 50vh;
+    background-color: rgb(44, 44, 43);;
+    height: 90vh;
     padding: 10px 5%;
-    width: 50%;
+    width: 90%;
+    border-radius: 10px;
+    border: 24px solid rgb(23, 23, 23);
     border-radius: 10px;
 }
 
 .dialog_header{
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    height: 5vh;
+    height: 10vh;
+    border-bottom: 3px solid rgb(209, 207, 207);
 }
 
 .trash_content{
@@ -60,4 +95,25 @@ header{
 
 .d_none{
     display: none;
+}
+
+@media(max-width: 830px){
+    .div_p_notes{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-bottom: 1px solid rgb(0, 0, 0);
+        padding: 0 5%;
+        margin: 16px 0;
+    } 
+}
+
+@media(max-width: 500px){
+    .page_border,
+    .dialog_content{
+        border: 12px solid rgb(23, 23, 23);
+    }
+    .dialog_content{
+        width: 100%;
+    }
 }
