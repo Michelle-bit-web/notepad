@@ -1,14 +1,9 @@
-@font-face {
-    font-family: "Merienda-VariableFont_wght";
-    src: url("/assets/fonts/Merienda-VariableFont_wght.ttf") format("truetype");
-  }
-
 *{
     box-sizing: border-box;
     margin: 0;
     scroll-behavior: smooth;
     color: white;
-    font-family: 'Merienda-VariableFont_wght';
+    font-family: 'Merienda';
 }
 
 a{

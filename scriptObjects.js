@@ -1,7 +1,20 @@
-let notesTitles = [];
-let notes = [];
-let trashNotes = [];
-let trashNotesTitles = [];
+let allNotes = {
+  notesTitles: [],
+  notes: [],
+  trashNotes: [],
+  trashNotesTitles: [],
+};
+
+function moveNote(indexNote, startKey, destinationKey) {
+  let trashNote = allNotes[startKey].splice(indexNote, 1);
+  allNotes[destinationKey].push(trashNote);
+  let trashNotesTitle = allNotes[startKey + 'Titles'].splice(indexNote, 1);
+  allNotes[destinationKey + 'Titles'].push(trashNotesTitle);
+ 
+  saveToLocalStorage();
+  renderNotes();
+  renderTrashNotes();
+}
 
 function init() {
   getFromLocalStorage();
@@ -59,7 +72,7 @@ function getFromLocalStorage() {
 function renderNotes() {
   let contentRef = document.getElementById("content");
   contentRef.innerHTML = "";
-  for (let indexNote = 0; indexNote < notes.length; indexNote++) {
+  for (let indexNote = 0; indexNote < allNotes.notes.length; indexNote++) {
     contentRef.innerHTML += getNoteTemplate(indexNote);
   }
 }
@@ -96,7 +109,7 @@ function renderTrashNotes() {
   trashContentRef.innerHTML = "";
   for (
     let indexTrashNote = 0;
-    indexTrashNote < trashNotes.length;
+    indexTrashNote < allNotes.trashNotes.length;
     indexTrashNote++
   ) {
     trashContentRef.innerHTML += getTrashNoteTemplate(indexTrashNote);
