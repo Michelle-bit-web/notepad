@@ -9,33 +9,55 @@ header{
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    border-bottom: 3px solid rgb(93, 92, 92);
+    background-color: rgb(254, 250, 219);
 }
 
 .div_input{
     height: 30vh;
     display: flex;
     flex-direction: column;
-    padding: 5%;
+    padding: 0 5%;
     box-sizing: border-box;
-    background-color: grey;
+    background-color: rgb(254, 250, 219);
 }
 
 .div_notes{
-    height: 65vh;
-    padding: 5%;
+    height: 10vh;
+    padding: 0 5%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.saved_content{
-    display: flex;
-}
 .overlay_dialog{
     position: absolute;
+    display: flex;
+    justify-content: center;
     background-color: rgba(0, 0, 0, 0.699);
     height: 65vh;
     width: 100%;
 }
 
 .dialog_content{
-    background-color: white;
-    height: 50vh
+    background-color: rgba(255, 255, 255, 0.661);
+    height: 50vh;
+    padding: 10px 5%;
+    width: 50%;
+    border-radius: 10px;
+}
+
+.dialog_header{
+    display: flex;
+    justify-content: space-between;
+    height: 5vh;
+}
+
+.trash_content{
+    background-color: grey;
+}
+
+.d_none{
+    display: none;
 }

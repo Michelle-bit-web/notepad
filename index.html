@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./styles/standard.css">
     <link rel="stylesheet" href="./styles/assets.css">
 </head>
-<body onload="init()" onclick="closeDialog()">
+<body onload="init()" onclick="triggerDialog(-1, event)">
     <header>
         <h1>Your Notepad</h1>
     </header>
@@ -23,23 +23,19 @@
         <input id="note_input" type="text">
         <button onclick="addNote()">Save note</button>
     </div>
-    <div class="saved_content">
-        <div class="div_notes">
-            <h2>Your Notes</h2>
-            <div id="content"></div>
-            <button onclick="showDialog(event)">Go to trash</button>
-        </div>
-        <dialog id="trash_dialog" class="overlay_dialog">
-            <div id="dialog_content" class="dialog_content">
-           
-                <h2>trash</h2>
-                <button onclick="closeDialog()">X</button>
-                <div id="trash_content">
-             </div>
-         </dialog>
-        
+    <div class="div_notes">
+        <h2>Your Notes</h2>
+        <button onclick="triggerDialog(1, event)">Go to trash</button>
+        <dialog id="trash_dialog" class="overlay_dialog d_none">
+            <div id="dialog_content" class="dialog_content" onclick="triggerDialog(1, event)">
+                <div class="dialog_header">
+                    <h2>Deleted Notes</h2>
+                    <button onclick="triggerDialog(-1, event)">X</button>
+                </div>
+                <div id="trash_content"></div>
+            </div>
+        </dialog>
     </div>
-    
-    
+    <div id="content"></div> 
 </body>
 </html>

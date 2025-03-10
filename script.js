@@ -7,8 +7,8 @@ let trashNotesTitles = [];
 
 function init(){
     getFromLocalStorage();
-    renderNotes()
-    renderTrashNotes()
+    renderNotes();
+    renderTrashNotes();
 }
 
 function saveData(){
@@ -104,14 +104,11 @@ function deleteTrashNotes(indexTrashNote){
     renderTrashNotes();
  }
 
- function showDialog(event){
+ function triggerDialog(a, event){
     const dialog = document.getElementById('trash_dialog');
-    dialog.show();
+    if(a > 0){dialog.classList.remove('d_none')
+    }
+    else if(a < 0){dialog.classList.add('d_none')
+    }
     event.stopPropagation();
  }
- function closeDialog(){
-    const dialog = document.getElementById('trash_dialog');
-    dialog.close();
-   
- }
-
