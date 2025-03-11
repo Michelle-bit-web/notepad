@@ -13,7 +13,7 @@ body{
 .page_border{
     border: 22px solid rgb(23, 23, 23);
     border-radius: 10px;
-    
+    min-height: 100vh;
 }
 header{
     height: 10vh;
